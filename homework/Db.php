@@ -4,16 +4,15 @@ class Db
 {
     protected $dbh;
     protected static $connection;
+
     protected function __construct()
     {
 
-        $host = '127.0.0.1';
-        $dbname = 'postgres';
-        $user = 'postgres';
-        $pass = '321';
-        $this->dbh = new PDO("pgsql:dbname=$dbname;host=$host", $user, $pass);
+        $db = include __DIR__ . '/conf.php';
+        $this->dbh = new PDO($db['driver'] . ':dbname=' . $db['dbname'] . ';host=' . $db['host'], $db['user'], $db['pass']);
 
     }
+
     public static function getInstance()
     {
         if (static::$connection === null) {
@@ -21,6 +20,7 @@ class Db
         }
         return static::$connection;
     }
+
     public function execute(string $sql, array $data = [])
     {
         $sth = $this->dbh->prepare($sql);
@@ -31,6 +31,7 @@ class Db
         }
         return true;
     }
+
     public function query(string $sql, array $data = [], $class = null)
     {
         $sth = $this->dbh->prepare($sql);
@@ -45,6 +46,7 @@ class Db
             return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
         }
     }
+
     public function queryEach(string $sql, array $data = [], $class = null)
     {
         $sth = $this->dbh->prepare($sql);
@@ -64,6 +66,7 @@ class Db
             }
         }
     }
+
     public function lastInsertId()
     {
         return $this->dbh->lastInsertId();

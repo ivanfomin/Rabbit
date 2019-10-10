@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/Db.php';
-require_once __DIR__ . '/rabbit_producer.php';
+
+include_once __DIR__ . '/../autoload.php';
 
 
 if (isset($_POST['message']) && !empty($_POST['message'])) {
@@ -12,7 +12,11 @@ if (isset($_POST['message']) && !empty($_POST['message'])) {
         $sth = $connection->query($query, [':number' => $number]);
     } while ($sth['number'] == $number);
 
-    sendTask([$number, $_POST['message']]);
+    Actions::sendTask([$number, $_POST['message']]);
 
-    include __DIR__ . '/link.php';
+    echo 'Your number is ' . $number;
+
+    echo '<p><a href="check.php?number=' . $number . '">Проверить</a></p>';
+
+
 }
