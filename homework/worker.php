@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/Db.php';
+include_once __DIR__ . '/autoload.php';
+
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
@@ -18,7 +18,7 @@ $callback = function ($msg) {
     $connection = Db::getInstance();
     $number = array_shift($parts);
     $sth = $connection->execute($query, [':number' => $number, ':message' => implode(' ', $parts)]);
-    $sleep_rand = rand(5, 10);
+    $sleep_rand = rand(5, 60);
     sleep($sleep_rand);
     $query = 'UPDATE ' . $table . ' SET status = :status WHERE number = :number';
     $sth = $connection->execute($query, [':status' => true, ':number' => $number]);
