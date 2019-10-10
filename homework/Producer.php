@@ -4,7 +4,7 @@ include_once __DIR__ . '/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
-class Actions
+class Producer
 {
 
     public static function sendTask($data)

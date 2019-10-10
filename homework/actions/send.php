@@ -12,7 +12,7 @@ if (isset($_POST['message']) && !empty($_POST['message'])) {
         $sth = $connection->query($query, [':number' => $number]);
     } while ($sth['number'] == $number);
 
-    Actions::sendTask([$number, $_POST['message']]);
+    Producer::sendTask([$number, $_POST['message']]);
 
     echo 'Your number is ' . $number;
 
