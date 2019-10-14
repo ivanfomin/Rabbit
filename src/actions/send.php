@@ -2,6 +2,8 @@
 
 include_once __DIR__ . '/../../vendor/autoload.php';
 
+use App\Db;
+use App\Producer;
 
 if (isset($_POST['message']) && !empty($_POST['message'])) {
     $table = 'rabbit_tasks';

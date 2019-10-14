@@ -1,6 +1,7 @@
 <?php
 include_once __DIR__ . '/../../vendor/autoload.php';
 
+use App\Db;
 
 
 if (isset($_GET['number']) && !empty($_GET['number'])) {
