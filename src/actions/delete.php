@@ -1,6 +1,6 @@
 <?php
 
-include_once __DIR__ . '/../autoload.php';
+include_once __DIR__ . '/../../vendor/autoload.php';
 
 
 if (isset($_POST['number']) && !empty($_POST['number'])) {

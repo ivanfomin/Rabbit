@@ -1,5 +1,6 @@
 <?php
 
+
 class Db
 {
     protected $dbh;

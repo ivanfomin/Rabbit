@@ -1,5 +1,6 @@
 <?php
-include_once __DIR__ . '/../autoload.php';
+include_once __DIR__ . '/../../vendor/autoload.php';
+
 
 
 if (isset($_GET['number']) && !empty($_GET['number'])) {

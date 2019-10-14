@@ -8,7 +8,9 @@
 <body>
 <p>Отправить задание в очередь</p>
 <form method="post" action="actions/send.php ">
-    <input type="text" name="message"><br>
+    <label for="message">Сообщение</label>
+    <input id="message" type="text" name="message"><br>
+
     <input type="hidden" name="number" value="<?php echo $number; ?>"><br>
     <button id="send" type="submit">Отправить</button>
 </form>
@@ -17,7 +19,9 @@
 
 <p>Найти задание по его номеру</p>
 <form action="actions/check.php" method="get">
-    <input type="number" name="number"><br><br>
+    <label for="message1">Найти</label>
+    <input type="number" name="number" id="message1"><br><br>
+
     <button type="submit">Найти</button>
 </form>
 <hr>

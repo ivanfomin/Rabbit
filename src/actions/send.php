@@ -1,6 +1,6 @@
 <?php
 
-include_once __DIR__ . '/../autoload.php';
+include_once __DIR__ . '/../../vendor/autoload.php';
 
 
 if (isset($_POST['message']) && !empty($_POST['message'])) {
@@ -16,7 +16,7 @@ if (isset($_POST['message']) && !empty($_POST['message'])) {
 
     echo 'Your number is ' . $number;
 
-    echo '<p><a href="check.php?number=' . $number . '">Проверить</a></p>';
+    echo '<p><a href="/actions/check.php?number=' . $number . '">Проверить</a></p>';
 
 
 }
